@@ -1,0 +1,68 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+}
+
+header {
+    background-color: #2c3e50;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 100;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+header p {
+    margin: 5px 0 0 0;
+    font-size: 14px;
+    color: #1abc9c;
+}
+
+/* Estilos de la barra offline */
+#offline-alert {
+    background-color: #e74c3c;
+    color: white;
+    text-align: center;
+    padding: 12px;
+    font-weight: bold;
+    position: fixed;
+    bottom: 0; /* Lo colocamos abajo para que no estorbe el header */
+    width: 100%;
+    z-index: 200;
+    transition: transform 0.3s ease-in-out;
+}
+
+.oculto {
+    display: none !important;
+}
+
+/* Diseño del contenedor y tarjetas */
+.grid-contenedor {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 5px solid #1abc9c;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
