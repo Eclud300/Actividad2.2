@@ -28,12 +28,12 @@ updateOnlineStatus();
 // 3. Requisito 2: Consumir WebAPI original
 function fetchApiData() {
     // Sustituye esta URL por el endpoint de tu API en la nube
-    const apiUrl = 'https://apiactividad2-2.onrender.com'; 
+    const apiUrl = 'https://apiactividad2-2.onrender.com/api/productos'; 
     
     fetch(apiUrl)
         .then(response => response.json())
         .then(data => {
-            const list = document.getElementById('api-data');
+            const list = document.getElementById('lista-datos');
             list.innerHTML = ''; // Limpiar lista
             
             // Ejemplo de renderizado de datos
