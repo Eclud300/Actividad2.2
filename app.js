@@ -9,13 +9,12 @@ if ('serviceWorker' in navigator) {
 
 // 2. Requisito 3: Verificador Offline / Online
 const updateOnlineStatus = () => {
+    const alertaOffline = document.getElementById('offline-alert');
     if (navigator.onLine) {
-        // Quita la clase, el mensaje desaparece
-        document.body.classList.remove('offline');
-        fetchApiData(); // Recarga los datos al volver el internet
+        alertaOffline.classList.add('oculto'); // Oculta el mensaje rojo
+        fetchApiData(); 
     } else {
-        // Agrega la clase, el mensaje aparece
-        document.body.classList.add('offline');
+        alertaOffline.classList.remove('oculto'); // Muestra el mensaje rojo
     }
 };
 
@@ -28,7 +27,7 @@ updateOnlineStatus();
 // 3. Requisito 2: Consumir WebAPI original
 function fetchApiData() {
     // Sustituye esta URL por el endpoint de tu API en la nube
-    const apiUrl = 'https://apiactividad2-2.onrender.com'; 
+    const apiUrl = 'https://apiactividad2-2.onrender.com/api/productos';
     
     fetch(apiUrl)
         .then(response => response.json())
@@ -39,6 +38,7 @@ function fetchApiData() {
             // Ejemplo de renderizado de datos
             data.forEach(item => {
                 const li = document.createElement('li');
+                li.classList.add('card');
                 li.textContent = item.nombre; // Ajusta según la estructura de tu JSON
                 list.appendChild(li);
             });
